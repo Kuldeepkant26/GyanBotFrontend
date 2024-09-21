@@ -83,7 +83,7 @@ function Home2() {
             <div className='chatbot'>
                 <div className="top">
                     <img src="https://i.pinimg.com/originals/e5/d6/8b/e5d68b4c0923839b89fefb727afb9742.gif" alt="AI Bot Face" />
-                    {localStorage.getItem('authToken') ? <>
+                    {localStorage.getItem('authToken') && currUser ? <>
                         <h1 className='w-full text-center p-3'> Hello {currUser.name}!!</h1>
                     </> :
 

@@ -121,6 +121,8 @@
     .signup-page .sform input,
     .signup-page .sform select {
         width: 90%;
+        border-radius: 0px;
+        overflow: hidden;
 
     }
 

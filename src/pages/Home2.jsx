@@ -8,7 +8,7 @@ import { StringOutputParser } from '@langchain/core/output_parsers';
 import '../css/home.css';
 
 function Home2() {
-    let { name, setName } = useContext(MyContext);
+    let { name, setName, currUser } = useContext(MyContext);
     const [uprompt, setUprompt] = useState('');
     const [output, setOutput] = useState([]);  // Stores all messages, both user and bot
     const [chatHistory, setChatHistory] = useState([]);  // Keeps track of the last 3-4 messages
@@ -83,7 +83,12 @@ function Home2() {
             <div className='chatbot'>
                 <div className="top">
                     <img src="https://i.pinimg.com/originals/e5/d6/8b/e5d68b4c0923839b89fefb727afb9742.gif" alt="AI Bot Face" />
-                    <h1 className='w-full text-center p-3'> Hello {name}!!</h1>
+                    {localStorage.getItem('authToken') ? <>
+                        <h1 className='w-full text-center p-3'> Hello {currUser.name}!!</h1>
+                    </> :
+
+                        <h1 className='w-full text-center p-3'> Hey there!</h1>
+                    }
                 </div>
                 <div className="chat">
                     {output.map((el, key) => (

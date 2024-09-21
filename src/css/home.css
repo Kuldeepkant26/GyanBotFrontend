@@ -110,6 +110,7 @@ p {
 .input-section input {
     /* background-color: rgb(49, 47, 47); */
     outline: none;
+    background-color: #03030300;
 }
 
 .input-box {

@@ -46,6 +46,7 @@ function Home2() {
 
         return ChatPromptTemplate.fromMessages([
             ["system", "You are an AI assistant who provides helpful and relevant responses based on the user's input and context."],
+            ["system", "try to summerize the answer to user questions within 4-6 lines, remamber code do not count in summery you can write required code as much as needed"],
             ["system", historyString],
             ["human", uprompt]
         ]);

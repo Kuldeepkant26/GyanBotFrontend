@@ -101,17 +101,18 @@ function Home2() {
                     {/* Invisible div that we scroll to, to always be at the bottom */}
                     <div ref={chatEndRef}></div>
                 </div>
-                <div className='input-section'>
-                    <input
-                        type="text"
-                        value={uprompt}
-                        onChange={(e) => setUprompt(e.target.value)}
-                        onKeyDown={handleKeyDown}  // Handle Enter key
-                        placeholder='Ask here'
-                        className='input-box'
-                    />
-                    <button onClick={asktobot} className='ask-button'><i className="ri-arrow-up-line"></i></button>
-                </div>
+
+            </div>
+            <div className='input-section'>
+                <input
+                    type="text"
+                    value={uprompt}
+                    onChange={(e) => setUprompt(e.target.value)}
+                    onKeyDown={handleKeyDown}  // Handle Enter key
+                    placeholder='Ask here'
+                    className='input-box'
+                />
+                <button onClick={asktobot} className='ask-button'><i className="ri-arrow-up-line"></i></button>
             </div>
         </div>
     );

@@ -94,7 +94,7 @@ p {
 }
 
 .input-section {
-    width: 98%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -104,7 +104,7 @@ p {
     background-color: #333;
     border-radius: 35px;
     gap: 0.3rem;
-    margin: 0.2rem;
+    margin-bottom: 0.3rem;
 }
 
 .input-section input {

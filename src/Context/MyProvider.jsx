@@ -18,7 +18,7 @@ const MyProvider = ({ children }) => {
 
     async function fetchCurrUser() {
         if (!localStorage.getItem('authToken')) {
-            setcurrUser(null);
+            return setcurrUser(null);
         }
         try {
             let res = await axios.get(`${import.meta.env.VITE_BURL}/api/auth/getuser`, {
@@ -31,7 +31,7 @@ const MyProvider = ({ children }) => {
         } catch (error) {
             setcurrUser(null)
             localStorage.removeItem('authToken')
-            alert(error.response.data.message);
+
 
         }
     }
@@ -42,7 +42,7 @@ const MyProvider = ({ children }) => {
     }, []);
 
     return (
-        <MyContext.Provider value={{ currUser, setcurrUser,logout }}>
+        <MyContext.Provider value={{ currUser, setcurrUser, logout }}>
             {children}
         </MyContext.Provider>
     );

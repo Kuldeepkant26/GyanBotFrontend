@@ -2,12 +2,17 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import '../css/AllPosts.css'
 import Post from './Post';
+import { toast } from 'react-toastify'
 function Allposts() {
   const [posts, setPosts] = useState([]);
 
   async function fetchPosts() {
-    const res = await axios.get(`${import.meta.env.VITE_BURL}/api/posts/getposts`);
-    setPosts(res.data.posts)
+    try {
+      const res = await axios.get(`${import.meta.env.VITE_BURL}/api/posts/getposts`);
+      setPosts(res.data.posts)
+    } catch (error) {
+      toast.warning(error.response.data.message);
+    }
   }
 
   useEffect(() => {

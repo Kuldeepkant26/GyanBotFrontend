@@ -3,12 +3,23 @@ import React, { createContext, useEffect, useState } from 'react';
 export const MyContext = createContext();
 
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const MyProvider = ({ children }) => {
 
-    const [name, setName] = useState('Kuldeep');
+    const navigate = useNavigate()
     const [currUser, setcurrUser] = useState(null);
 
+    function logout() {
+        setcurrUser(null);
+        localStorage.removeItem('authToken');
+        navigate('/');
+
+    }
+
     async function fetchCurrUser() {
+        if (!localStorage.getItem('authToken')) {
+            setcurrUser(null);
+        }
         try {
             let res = await axios.get(`${import.meta.env.VITE_BURL}/api/auth/getuser`, {
                 headers: {
@@ -18,17 +29,20 @@ const MyProvider = ({ children }) => {
             console.log(res);
             setcurrUser(res.data.user);
         } catch (error) {
+            setcurrUser(null)
+            localStorage.removeItem('authToken')
             alert(error.response.data.message);
+
         }
     }
     useEffect(() => {
-        if (localStorage.getItem('authToken')) {
-            fetchCurrUser();
-        }
+
+        fetchCurrUser();
+
     }, []);
 
     return (
-        <MyContext.Provider value={{ name, setName, currUser, setcurrUser }}>
+        <MyContext.Provider value={{ currUser, setcurrUser,logout }}>
             {children}
         </MyContext.Provider>
     );

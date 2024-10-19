@@ -7,10 +7,14 @@ nav {
     padding: 2rem 5.4vw;
     position: fixed;
     top: 0px;
-    /* border-bottom: 1px solid grey; */
-   
+    border-bottom: 1px solid rgba(128, 128, 128, 0.455);
+    backdrop-filter: blur(10px);
+    /* This blurs the background behind content */
+    background: rgba(0, 0, 0, 0.3);
+    /* Optional: add semi-transparent overlay */
     color: white;
     z-index: 10;
+
 }
 
 nav .menu {
@@ -34,16 +38,9 @@ nav .menu .options {
     border-radius: 10px;
 }
 
-nav .menu .options:hover {
+nav .menu .options:hover {}
 
-  
-
-}
-
-nav .menu .options:active {
-
-
-}
+nav .menu .options:active {}
 
 nav .menu .options:hover {
     transform: translateY(-5px);
@@ -64,7 +61,7 @@ nav .menu .options:hover {
     nav {
         height: 1rem;
         padding: 2rem;
-       
+
         border-bottom: 0px;
     }
 

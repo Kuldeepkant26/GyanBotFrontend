@@ -1,0 +1,99 @@
+.post {
+    width: 400px;
+    height: 500px;
+    background-color: white;
+
+}
+
+.post .top {
+    width: 100%;
+    padding: 0.7rem;
+    border-bottom: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.post .top .menu{
+  position: absolute;
+  width: 70px;
+  height: fit-content;
+  right: 50px;
+  background-color:black;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 10px;
+  
+}
+.post .top .menu button{
+    width: 100%;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 2px;
+    font-size: 0.7rem;
+}
+.post .top p{
+  display: flex;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  align-items: center;
+}
+
+.post .top i{
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.post .top .profile {
+    height: 1.7rem;
+    width: 1.7rem;
+    border-radius: 50%;
+    color: white;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.post img {
+    width: 100%;
+    height: 78%;
+    object-fit: cover;
+}
+
+.post .bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem;
+}
+.post .bottom i{
+    font-size: 1.5rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+.post .bottom .liked{
+   color: red;
+}
+.post .bottom .left{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+}
+
+@media (max-width:550px) {
+    .post {
+        width:100%;
+        height: 450px;
+        background-color: white;
+    
+    }   
+}

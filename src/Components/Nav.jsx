@@ -1,8 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import '../css/nav.css';
+import { MyContext } from '../Context/MyProvider';
 
 function Nav() {
+    const { currUser, logout } = useContext(MyContext)
     const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => {
@@ -12,8 +18,7 @@ function Nav() {
         setMenuOpen(false);
     }
     function handelLogout() {
-        localStorage.removeItem('authToken');
-        navigate('/login')
+        logout();
     }
     return (
         <>
@@ -28,13 +33,23 @@ function Nav() {
                     <Link className="options" to={'/'} onClick={closeMenu}>
                         Home
                     </Link>
-                    {localStorage.getItem('authToken') ?
-                        <> <button className="options" onClick={() => { toggleMenu(), handelLogout() }}>
-                            Logout
-                        </button>
-                            <Link className="options" to={'/about'} onClick={toggleMenu}>
-                                About
-                            </Link></> :
+                    <Link className="options" to={'/allposts'} onClick={closeMenu}>
+                        Explore
+                    </Link>
+
+                    {localStorage.getItem('authToken') && currUser ?
+
+                        <>
+                            <Link className="options" to={'/addpost'} onClick={closeMenu}>
+                                Add post
+                            </Link>
+                            <Link className="options" to={`/profile/${currUser._id}`} onClick={toggleMenu}>
+                                Profile
+                            </Link>
+                            <button className="options" onClick={() => { toggleMenu(), handelLogout() }}>
+                                Logout
+                            </button>
+                        </> :
                         <>
                             <Link className="options" to={'/signup'} onClick={toggleMenu}>
                                 Signup
@@ -43,16 +58,13 @@ function Nav() {
                                 Login
                             </Link>
                         </>}
-
-
-
                 </div>
 
                 <i id="mnubtn" className="ri-menu-line" onClick={toggleMenu}></i>
 
             </nav>
 
-
+            <ToastContainer></ToastContainer>
         </>
     );
 }

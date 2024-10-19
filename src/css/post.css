@@ -62,11 +62,12 @@
 
 .post img {
     width: 100%;
-    height: 78%;
+    height: 75%;
     object-fit: cover;
 }
 
 .post .bottom {
+    height: fit-content;
     width: 100%;
     display: flex;
     align-items: center;
@@ -74,7 +75,7 @@
     padding: 0.7rem;
 }
 .post .bottom i{
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     overflow: hidden;
     cursor: pointer;
 }
@@ -90,10 +91,18 @@
 }
 
 @media (max-width:550px) {
+    .post .bottom i{
+        font-size: 2rem;
+       
+    }
+    .post img {
+        width: 100%;
+        height: 75%;
+        object-fit: cover;
+    }
     .post {
-        width:100%;
-        height: 450px;
+        width: 100%;
+        height: 550px;
         background-color: white;
-    
-    }   
+    }
 }

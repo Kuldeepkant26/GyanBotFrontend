@@ -24,7 +24,7 @@ function Allposts() {
           ))}
         </>
       ) : (
-        <p>No posts available</p>
+        <h1 className='text-white'>No posts available</h1>
       )}
     </div>
 
